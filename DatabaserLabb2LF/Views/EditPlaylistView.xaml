@@ -36,7 +36,8 @@
                     <ListView
                         Margin="0,6"
                         ItemsSource="{Binding PlaylistTrackList}"
-                        SelectedItem="{Binding SelectedPlayListTrack}">
+                        SelectedItem="{Binding SelectedPlayListTrack}"
+                        SelectionMode="Single">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Width="260" Header="Låttitel">
