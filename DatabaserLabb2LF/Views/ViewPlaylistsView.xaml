@@ -23,10 +23,10 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="800">
+                    <GridViewColumn Width="260" Header="Spellista">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0 4">
+                                <StackPanel Margin="0,4">
                                     <TextBlock
                                         Margin="10,0,0,0"
                                         FontWeight="Bold"
@@ -39,9 +39,30 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    <GridViewColumn Width="100" Header="Total längd">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,4" HorizontalAlignment="Right">
+                                    <TextBlock
+                                        Margin="10,0,0,0"
+                                        FontWeight="Bold"
+                                        Visibility="Hidden" />
+                                    <TextBlock
+                                        Margin="10,0,0,0"
+                                        Text="{Binding Tracks, Converter={StaticResource TrackListToFormattedTimeStringConverter}}"
+                                        TextAlignment="Right" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
 
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
         <Grid Grid.Row="1" Background="IndianRed">
             <Grid.ColumnDefinitions>

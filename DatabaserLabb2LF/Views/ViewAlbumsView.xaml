@@ -37,7 +37,7 @@
                         </GridViewColumn.CellTemplate>
 
                     </GridViewColumn>
-                    <GridViewColumn Width="200" Header="Antal låtar">
+                    <GridViewColumn Width="100" Header="Antal låtar">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
 
@@ -46,8 +46,25 @@
                         </GridViewColumn.CellTemplate>
 
                     </GridViewColumn>
+                    <GridViewColumn Width="100" Header="Total Längd">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+
+                                <TextBlock
+                                    Margin="20,0,0,0"
+                                    Text="{Binding Tracks, Converter={StaticResource TrackListToFormattedTimeStringConverter}}"
+                                    TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
         <Grid Grid.Row="1" Background="IndianRed">
             <Grid.ColumnDefinitions>

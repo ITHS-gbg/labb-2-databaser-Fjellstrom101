@@ -60,5 +60,6 @@
         </Style>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <converters:MillisecondsToFormattedStringConverter x:Key="MillisecondsToFormattedStringConverter" />
+        <converters:TrackListToFormattedTimeStringConverter x:Key="TrackListToFormattedTimeStringConverter" />
     </Application.Resources>
 </Application>
