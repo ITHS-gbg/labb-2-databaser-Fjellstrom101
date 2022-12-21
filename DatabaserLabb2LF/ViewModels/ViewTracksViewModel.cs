@@ -70,14 +70,12 @@ public class ViewTracksViewModel : ObservableObject
             }
 
 
-            var playlistsWithTrack = _dbContext.Playlists.Where(p => p.Tracks.Contains(SelectedTrack)).Include(p => p.Tracks);
-
-            foreach (var playlist in playlistsWithTrack)
+            foreach (var playlist in SelectedTrack.Playlists)
             {
                 playlist.Tracks.Remove(SelectedTrack);
             }
-
             _dbContext.Tracks.Remove(SelectedTrack);
+
             _dbContext.SaveChanges();
             _navigationStore.CurrentViewModel = new ViewTracksViewModel(_dbContext, _navigationStore);
         });

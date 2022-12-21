@@ -46,7 +46,7 @@
                         </GridViewColumn.CellTemplate>
 
                     </GridViewColumn>
-                    <GridViewColumn Width="100" Header="Total Längd">
+                    <GridViewColumn Width="150" Header="Total Längd">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
 

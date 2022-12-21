@@ -68,9 +68,7 @@ public class ViewAlbumsViewModel : ObservableObject
 
             foreach (var track in SelectedAlbum.Tracks)
             {
-                var playlistWithTrack = _dbContext.Playlists.Where(p => p.Tracks.Contains(track));
-                
-                foreach (var playlist in playlistWithTrack)
+                foreach (var playlist in track.Playlists)
                 {
                     playlist.Tracks.Remove(track);
                 }
