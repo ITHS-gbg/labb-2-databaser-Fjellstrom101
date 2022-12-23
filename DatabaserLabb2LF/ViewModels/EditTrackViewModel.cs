@@ -227,7 +227,7 @@ public class EditTrackViewModel : ObservableObject
         _dbContext = dbContext;
         _navigationStore = navigationStore;
 
-        int nextId = _dbContext.Tracks.Max(t => t.TrackId) + 1;
+        int nextId = (_dbContext.Tracks.Max(t => t.TrackId as int?) ?? -1) + 1;
         _track = new Track(){TrackId = nextId};
 
         InitCommands();

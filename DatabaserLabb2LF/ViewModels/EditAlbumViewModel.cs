@@ -51,7 +51,7 @@ public class EditAlbumViewModel : ObservableObject
         _dbContext = dbContext;
         _navigationStore = navigationStore;
 
-        int nextId = _dbContext.Albums.Max(a => a.AlbumId) + 1;
+        int nextId = (_dbContext.Albums.Max(a => a.AlbumId as int?) ?? -1) + 1;
         _album = new Album(){AlbumId = nextId};
 
         InitCommands();

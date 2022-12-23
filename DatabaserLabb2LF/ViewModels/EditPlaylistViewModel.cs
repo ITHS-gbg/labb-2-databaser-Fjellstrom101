@@ -71,7 +71,7 @@ public class EditPlaylistViewModel : ObservableObject
         _dbContext = dbContext;
         _navigationStore = navigationStore;
 
-        int nextId = _dbContext.Playlists.Max(p => p.PlaylistId) + 1;
+        int nextId = (_dbContext.Playlists.Max(p => p.PlaylistId as int?) ?? -1) + 1;
         _playlist = new Playlist(){PlaylistId = nextId};
 
         InitCommands();

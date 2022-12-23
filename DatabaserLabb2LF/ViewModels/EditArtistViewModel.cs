@@ -54,7 +54,7 @@ public class EditArtistViewModel : ObservableObject
         _dbContext = dbContext;
         _navigationStore = navigationStore;
 
-        int nextId = _dbContext.Artists.Max(a => a.ArtistId) + 1;
+        int nextId = (_dbContext.Artists.Max(a => a.ArtistId as int?) ??  -1) + 1;
         _artist = new Artist() { ArtistId = nextId };
 
         InitCommands();
